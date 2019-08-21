@@ -48,6 +48,8 @@ ydict = {'Company':company_list,'Batch':batch_list,'Description':descr_list}
 
 ydf = pd.DataFrame(ydict)
 
+# Code to create excel sheet
+
 ydf.to_excel("ycombinatorcompanies.xlsx", sheet_name='Current List',index=False)
 
 driver.quit()
