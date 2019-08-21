@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-
 import pandas as pd 
 
 options = Options()
@@ -40,7 +39,7 @@ for descr in soup.find_all("td", class_=False):
     ytext = str(descr)
     descr_list.append(ytext[4:-5])
 
-#Create dictionary from 3 lists (each list a column)
+#Create dictionary from 3 lists (each list is a column)
 
 ydict = {'Company':company_list,'Batch':batch_list,'Description':descr_list}
 
@@ -51,5 +50,7 @@ ydf = pd.DataFrame(ydict)
 # Code to create excel sheet
 
 ydf.to_excel("ycombinatorcompanies.xlsx", sheet_name='Current List',index=False)
+
+# Quit headless browser
 
 driver.quit()
