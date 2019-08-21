@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-import re
+
 import pandas as pd 
 
 options = Options()
@@ -48,8 +48,6 @@ ydict = {'Company':company_list,'Batch':batch_list,'Description':descr_list}
 
 ydf = pd.DataFrame(ydict)
 
-## code to create excel sheet 
-
-# ydf.to_excel("ycombinatorcompanies.xlsx", sheet_name='Current List',index=False)
+ydf.to_excel("ycombinatorcompanies.xlsx", sheet_name='Current List',index=False)
 
 driver.quit()
